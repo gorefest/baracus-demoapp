@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="55dip"
+              android:orientation="horizontal"  android:selectAllOnFocus="true" >
+
+    <TextView
+            android:id="@+id/entryName"
+            android:layout_width="150dip"
+            android:layout_height="wrap_content"
+            android:textSize="14dip"/>
+
+    <TextView
+            android:id="@+id/entryAccount"
+            android:layout_width="175dip"
+            android:layout_height="wrap_content"
+            android:textSize="14dip"/>
+
+
+</LinearLayout>
