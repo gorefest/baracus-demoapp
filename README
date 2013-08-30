@@ -1,1 +1,8 @@
-This file was created by IntelliJ IDEA 12.1.3 for binding GitHub repository
+Basic Demonstration Application for the BARACUS Framework
+
+You will need the android SDK configured properly in the pom.xml.
+If You are not familiar with maven profile, simply configure the
+top level sdk path and run a mvn clean install in order to have
+the project beeing built.
+
+Any suggestions, comments, bug reports or feedback are welcome.

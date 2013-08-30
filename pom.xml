@@ -15,7 +15,7 @@
         <android.plugin.version>3.5.3</android.plugin.version>
         <android.sdk.path>/usr/java/adt-bundle-linux-x86_64/sdk</android.sdk.path>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <baracus.version>0.3-SNAPSHOT</baracus.version>
+        <baracus.version>0.5-SNAPSHOT</baracus.version>
     </properties>
 
     <dependencies>
@@ -54,7 +54,6 @@
 
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
                 <configuration>
                     <source>1.6</source>
                     <target>1.6</target>
@@ -63,7 +62,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>2.0.4</version>
                 <executions>
                     <execution>
                         <goals>
