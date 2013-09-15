@@ -2,12 +2,13 @@ package org.wonderapp;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.widget.ExpandableListView;
 import net.mantucon.baracus.annotations.Bean;
 import net.mantucon.baracus.orm.ObjectReference;
+import net.mantucon.baracus.signalling.DataChangeAwareComponent;
 import net.mantucon.baracus.util.Logger;
+import org.wonderapp.application.ApplicationContext;
 import org.wonderapp.dao.AccountDao;
 import org.wonderapp.dao.CustomerDao;
 import org.wonderapp.model.Account;
@@ -15,10 +16,9 @@ import org.wonderapp.model.Customer;
 import org.wonderapp.service.ConfigurationService;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-public class HelloAndroidActivity extends Activity {
+public class HelloAndroidActivity extends Activity implements DataChangeAwareComponent<Customer> {
 
     private final static Logger logger = new Logger(HelloAndroidActivity.class);
 
@@ -82,7 +82,7 @@ public class HelloAndroidActivity extends Activity {
     private void fillTable() {
 
         List<Customer> customers = customerDao.loadAll();
-        ExpandListAdapter adapter = new ExpandListAdapter(this, new ArrayList<Customer>(customers));
+        AccountExpandListAdapter adapter = new AccountExpandListAdapter(this, new ArrayList<Customer>(customers));
 
         expandableListView.setAdapter(adapter);
 
@@ -91,5 +91,9 @@ public class HelloAndroidActivity extends Activity {
         expandableListView.setClickable(true);
     }
 
+    @Override
+    public void onChange(Customer customer) {
+     logger.info("CHANGE!");
+    }
 }
 

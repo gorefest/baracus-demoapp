@@ -15,7 +15,7 @@
         <android.plugin.version>3.5.3</android.plugin.version>
         <android.sdk.path>/usr/java/adt-bundle-linux-x86_64/sdk</android.sdk.path>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <baracus.version>0.5-SNAPSHOT</baracus.version>
+        <baracus.version>0.6-SNAPSHOT</baracus.version>
         <platform.version>4.0.1.2</platform.version>
     </properties>
 

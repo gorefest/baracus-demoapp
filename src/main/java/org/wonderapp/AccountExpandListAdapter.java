@@ -1,11 +1,14 @@
 package org.wonderapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
+import net.mantucon.baracus.signalling.DataChangeAwareComponent;
+import org.wonderapp.application.ApplicationContext;
 import org.wonderapp.model.Account;
 import org.wonderapp.model.Customer;
 
@@ -13,14 +16,15 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class ExpandListAdapter extends BaseExpandableListAdapter {
+public class AccountExpandListAdapter extends BaseExpandableListAdapter {
 
     private Activity context;
     private List<Customer> groups;
 
-    public ExpandListAdapter(Activity context, List<Customer> groups) {
+    public AccountExpandListAdapter(Activity context, List<Customer> groups) {
         this.context = context;
         this.groups = groups;
+        ApplicationContext.freeDataChangeListeners(Account.class);
     }
 
     public Object getChild(int groupPosition, int childPosition) {
@@ -36,18 +40,48 @@ public class ExpandListAdapter extends BaseExpandableListAdapter {
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View view,
                              ViewGroup parent) {
 
-        final Date today = new Date();
+        final Account child = (Account) getChild(groupPosition, childPosition);
 
-        Account child = (Account) getChild(groupPosition, childPosition);
         if (view == null) {
             LayoutInflater infalInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
             view = infalInflater.inflate(R.layout.entries_list_child_item, null);
         }
-        TextView entryName = (TextView) view.findViewById(R.id.entryName);
+        final TextView entryName = (TextView) view.findViewById(R.id.entryName);
         entryName.setText(child.getAccountName().toString());
 
-        TextView entryValue = (TextView) view.findViewById(R.id.entryAccount);
+
+        final TextView entryValue = (TextView) view.findViewById(R.id.entryAccount);
         entryValue.setText(child.getAccountNumber());
+
+        // Define a change listener in order to refresh the data automatically
+        DataChangeAwareComponent<Account> dataChangeAwareComponent = new DataChangeAwareComponent<Account>() {
+            @Override
+            public void onChange(Account changedInstance) {
+                if (changedInstance.getId().equals(child.getId())) { // Only react on the account handled here
+                    // Because the data is not reloaded, but the child object is reused
+                    // we simply merge the to model objects. The layout()-Event will
+                    // reuse the child data object and fill in the correct values
+                    child.setAccountName(changedInstance.getAccountName());
+                    child.setAccountNumber(changedInstance.getAccountNumber());
+                }
+            }
+        };
+
+        // any data change on accounts done through the DAO layer will run through the change listener
+        ApplicationContext.registerDataChangeListener(Account.class, dataChangeAwareComponent);
+
+
+        View.OnClickListener onClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, AccountEditorActivity.class);
+                intent.putExtra("accountId", child.getId());
+                context.startActivity(intent);
+            }
+        };
+
+        entryName.setOnClickListener(onClickListener);
+        entryValue.setOnClickListener(onClickListener);
 
         return view;
     }
