@@ -85,9 +85,9 @@ public class AccountDao extends BaseDao<Account> {
         }
     };
 
-    @Override
-    public Class<? extends AbstractModelBase> getManagedClass() {
-        return Account.class;
+
+    public AccountDao() {
+        super(Account.class);
     }
 
     @Override

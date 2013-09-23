@@ -26,6 +26,10 @@ public class CustomerDao extends BaseDao<Customer> {
     @Bean
     AccountDao accountDao;
 
+    public CustomerDao() {
+        super(Customer.class);
+    }
+
     /**
      * The rowmapper has two basic tasks : create an object out of one row
      * and to generate a content values object.
@@ -90,11 +94,6 @@ public class CustomerDao extends BaseDao<Customer> {
 
         }
     };
-
-    @Override
-    public Class<? extends AbstractModelBase> getManagedClass() {
-        return Account.class;
-    }
 
     @Override
     public RowMapper<Customer> getRowMapper() {
