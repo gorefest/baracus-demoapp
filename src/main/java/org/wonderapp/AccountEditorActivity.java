@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import net.mantucon.baracus.annotations.Bean;
+import net.mantucon.baracus.context.ManagedActivity;
 import net.mantucon.baracus.errorhandling.ErrorSeverity;
 import org.wonderapp.application.ApplicationContext;
 import org.wonderapp.dao.AccountDao;
@@ -18,7 +19,7 @@ import org.wonderapp.model.Account;
  * To change this template use File | Settings | File Templates.
  */
 @Bean
-public class AccountEditorActivity extends Activity {
+public class AccountEditorActivity extends ManagedActivity {
 
     @Bean
     AccountDao accountDao;
@@ -28,14 +29,11 @@ public class AccountEditorActivity extends Activity {
     EditText accountNumber;
     EditText accoutName;
 
-    View underlyingView;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_account_editor);
-
-        this.underlyingView = getWindow().getDecorView().findViewById(android.R.id.content);
 
         Long accountId = this.getIntent().getExtras().getLong("accountId");
         if (accountId != null) {
@@ -67,13 +65,5 @@ public class AccountEditorActivity extends Activity {
             onBackPressed();
         }
     }
-
-
-    @Override
-    protected void onDestroy() {
-        ApplicationContext.unregisterErrorhandlersForView(underlyingView);
-        super.onDestroy();
-    }
-
 
 }
