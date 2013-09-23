@@ -24,6 +24,7 @@
             <groupId>net.mantucon.baracus</groupId>
             <artifactId>baracus-framework</artifactId>
             <version>${baracus.version}</version>
+            <type>apklib</type>
         </dependency>
         <dependency>
             <groupId>com.google.android</groupId>

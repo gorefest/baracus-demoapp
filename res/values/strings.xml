@@ -8,5 +8,6 @@
     <string name="accountNumber">Account Number</string>
     <string name="save">Save</string>
     <string name="accounts">Edit Account</string>
+    <string name="notNullAccountNumber">Account number must not be null</string>
 
 </resources>
