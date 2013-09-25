@@ -13,7 +13,6 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-import static net.mantucon.baracus.orm.AbstractModelBase.idCol;
 import static org.wonderapp.model.Account.*;
 
 /**

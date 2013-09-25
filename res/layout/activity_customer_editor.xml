@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/customerFirstName"
+            android:id="@+id/customerFirstNameLabel" android:layout_gravity="center"/>
+
+    <net.mantucon.baracus.ui.ConstrainedEditText android:id="@+id/txtCustomerFirstName"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              app:validatedBy="stringNotEmpty"
+            />
+
+    <net.mantucon.baracus.ui.ErrorView android:id="@+id/customerFirstMsg"
+                                       app:displayMessageFor="@id/txtCustomerFirstName"
+                                       app:highlightTarget="true"
+                                       android:layout_width="wrap_content"
+                                       android:layout_height="wrap_content"
+                                       android:layout_marginLeft="10dp"
+                                       android:editable="true"
+                                       android:textColor="#FF0000"
+                                       android:lines="1"
+                                       android:text=""/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/customerLastName"
+            android:id="@+id/customerNameLabel" android:layout_gravity="center"/>
+    <net.mantucon.baracus.ui.ConstrainedEditText android:id="@+id/txtCustomerLastName"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              app:validatedBy="stringNotEmpty"
+            />
+    <Button
+            android:id="@+id/btnSave"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/save"
+            android:onClick="btnSaveClicked"
+            />
+
+</LinearLayout>

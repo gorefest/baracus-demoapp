@@ -9,5 +9,7 @@
     <string name="save">Save</string>
     <string name="accounts">Edit Account</string>
     <string name="notNullAccountNumber">Account number must not be null</string>
+    <string name="customerFirstName">First Name</string>
+    <string name="customerLastName">Last Name</string>
 
 </resources>

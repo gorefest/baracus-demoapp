@@ -1,8 +1,11 @@
 package org.wonderapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ExpandableListView;
 import net.mantucon.baracus.annotations.Bean;
 import net.mantucon.baracus.orm.ObjectReference;
@@ -46,6 +49,11 @@ public class HelloAndroidActivity extends Activity implements DataChangeAwareCom
         expandableListView = (ExpandableListView) findViewById(R.id.expandableListView);
 
         fillTable();
+
+        for (Customer customer : customerDao.loadAll()) {
+            logger.info("Customer found $1",customer.toString());
+        }
+
     }
 
     private void initData() {
@@ -81,7 +89,7 @@ public class HelloAndroidActivity extends Activity implements DataChangeAwareCom
 
     private void fillTable() {
 
-        List<Customer> customers = customerDao.loadAll();
+        final List<Customer> customers = customerDao.loadAll();
         AccountExpandListAdapter adapter = new AccountExpandListAdapter(this, new ArrayList<Customer>(customers));
 
         expandableListView.setAdapter(adapter);
@@ -89,6 +97,21 @@ public class HelloAndroidActivity extends Activity implements DataChangeAwareCom
         expandableListView.setLongClickable(true);
 
         expandableListView.setClickable(true);
+        expandableListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(HelloAndroidActivity.this, CustomerEditorActivity.class);
+                ArrayList<Customer> chList = new ArrayList<Customer>(customers);
+                Customer c = chList.get(position);
+
+                intent.putExtra("customerId", c.getId());
+                HelloAndroidActivity.this.startActivity(intent);
+                return false;
+            }
+        });
+
+
+
     }
 
     @Override

@@ -14,7 +14,8 @@ import org.wonderapp.model.Customer;
 import java.util.List;
 
 import static net.mantucon.baracus.orm.AbstractModelBase.idCol;
-import static org.wonderapp.model.Customer.*;
+import static org.wonderapp.model.Customer.firstNameCol;
+import static org.wonderapp.model.Customer.lastNameCol;
 
 /**
  * Sample DAO class implementing a rowmapper for an entity with no
@@ -69,12 +70,12 @@ public class CustomerDao extends BaseDao<Customer> {
 
         @Override
         public String getAffectedTable() {
-            return TABLE_NAME;
+            return Customer.TABLE_NAME;
         }
 
         @Override
         public FieldList getFieldList() {
-            return fieldList;
+            return Customer.fieldList;
         }
 
         @Override

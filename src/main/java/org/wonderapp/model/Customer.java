@@ -15,10 +15,11 @@ public class Customer extends AbstractModelBase {
     /* Table metadata */
 
     public static final String TABLE_NAME="customer";    // needed for constructor
+    public static int columnIndex = AbstractModelBase.fieldList.size();
 
     public static final FieldList fieldList = new FieldList(TABLE_NAME);    // The field list needs to know about it's table
-    public static final Field lastNameCol= new Field("last_name");
-    public static final Field firstNameCol= new Field("first_name");
+    public static final Field lastNameCol= new Field("last_name", columnIndex++);
+    public static final Field firstNameCol= new Field("first_name", columnIndex++);
 
     static {
         fieldList.add(AbstractModelBase.fieldList);
@@ -59,5 +60,14 @@ public class Customer extends AbstractModelBase {
 
     public void setAccounts(List<Account> accounts) {
         this.accounts = accounts;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "lastName='" + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", accounts=" + accounts +
+                '}';
     }
 }

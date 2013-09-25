@@ -8,13 +8,14 @@ import net.mantucon.baracus.orm.*;
 public class Account extends AbstractModelBase {
 
     /* Table metadata */
+    public static int columnIndex= AbstractModelBase.fieldList.size();
 
     public static final String TABLE_NAME="account";    // needed for constructor and table creation
 
     public static final FieldList fieldList = new FieldList(TABLE_NAME);        // The field list needs to know about it's table
-    public static final Field accountNumberCol = new Field("account_number");   // the metadata of the table
-    public static final Field accountNameCol = new Field("account_name");
-    public static final Field customerIdCol = new Field("customer_id");   // this is going to be the N:1 relationship
+    public static final Field accountNumberCol = new Field("account_number", columnIndex++);   // the metadata of the table
+    public static final Field accountNameCol = new Field("account_name", columnIndex++);
+    public static final Field customerIdCol = new Field("customer_id", columnIndex++);   // this is going to be the N:1 relationship
 
     static {
         fieldList.add(AbstractModelBase.fieldList);     // You must have a local field list in each class

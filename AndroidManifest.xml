@@ -24,6 +24,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".AccountEditorActivity" android:label="Edit Account"/>
+        <activity android:name=".CustomerEditorActivity" android:label="Edit Customer"/>
     </application>
     <activity android:name=".wonderapp.AccountEditorActivity" android:label="@string/accounts"/>
 
