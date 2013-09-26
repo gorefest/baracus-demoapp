@@ -69,7 +69,7 @@ public class CustomerEditorActivity extends ManagedActivity {
          * or a mappeable component (TextViews are processed by @see TextEditErrorHandlers) */
         ApplicationContext.validateView(underlyingView);
 
-        if (ApplicationContext.viewHasErrors(underlyingView)) {
+        if (!ApplicationContext.viewHasErrors(underlyingView)) {
             currentCustomer.setFirstName(firstName.getText().toString());
             currentCustomer.setLastName(lastName.getText().toString());
             customerDao.save(currentCustomer);

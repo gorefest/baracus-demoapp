@@ -63,6 +63,8 @@ public class AccountExpandListAdapter extends BaseExpandableListAdapter {
                     // reuse the child data object and fill in the correct values
                     child.setAccountName(changedInstance.getAccountName());
                     child.setAccountNumber(changedInstance.getAccountNumber());
+                    entryName.setText(child.getAccountName());
+                    entryValue.setText(child.getAccountNumber());
                 }
             }
         };
