@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.wonderapp</groupId>
     <artifactId>wonderapp</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.1</version>
     <packaging>apk</packaging>
     <name>wonderapp</name>
 
@@ -13,15 +13,15 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <android.plugin.version>3.5.3</android.plugin.version>
-        <android.sdk.path>/usr/java/adt-bundle-linux-x86_64/sdk</android.sdk.path>
+	    <android.sdk.path>/usr/java/adt-bundle-linux-x86_64/sdk</android.sdk.path>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <baracus.version>0.6.2-SNAPSHOT</baracus.version>
+        <baracus.version>0.7-Beta1</baracus.version>
         <platform.version>4.0.1.2</platform.version>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>net.mantucon.baracus</groupId>
+            <groupId>org.baracus</groupId>
             <artifactId>baracus-framework</artifactId>
             <version>${baracus.version}</version>
             <type>apklib</type>
@@ -40,7 +40,7 @@
             <plugin>
                 <groupId>com.jayway.maven.plugins.android.generation2</groupId>
                 <artifactId>android-maven-plugin</artifactId>
-                <version>3.1.1</version>
+                <version>3.7.0</version>
                 <configuration>
                     <androidManifestFile>${project.basedir}/AndroidManifest.xml</androidManifestFile>
                     <assetsDirectory>${project.basedir}/assets</assetsDirectory>
@@ -53,7 +53,6 @@
                 </configuration>
                 <extensions>true</extensions>
             </plugin>
-
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
@@ -94,7 +93,7 @@
             <id>linux</id>
             <properties>
                 <platform.version>4.0.1.2</platform.version>
-                <android.sdk.path>/usr/java/adt-bundle-linux-x86_64/sdk</android.sdk.path>
+	        <android.sdk.path>/usr/java/adt-bundle-linux-x86_64/sdk</android.sdk.path>
                 <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
             </properties>
 
@@ -128,17 +127,4 @@
             </distributionManagement>
         </profile>
     </profiles>
-    <repositories>
-        <repository>
-            <id>mantucon-repo</id>
-            <name>MANTUCON NEXUS</name>
-            <url>http://www.mantucon.net/nexus/content/groups/public</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
 </project>
