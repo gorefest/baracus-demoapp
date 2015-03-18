@@ -2,18 +2,18 @@ package org.wonderapp.dao;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import net.mantucon.baracus.annotations.Bean;
-import net.mantucon.baracus.dao.BaseDao;
-import net.mantucon.baracus.orm.AbstractModelBase;
-import net.mantucon.baracus.orm.Field;
-import net.mantucon.baracus.orm.FieldList;
-import net.mantucon.baracus.orm.LazyCollection;
+import org.baracus.annotations.Bean;
+import org.baracus.dao.BaseDao;
+import org.baracus.orm.AbstractModelBase;
+import org.baracus.orm.Field;
+import org.baracus.orm.FieldList;
+import org.baracus.orm.LazyCollection;
 import org.wonderapp.model.Account;
 import org.wonderapp.model.Customer;
 
 import java.util.List;
 
-import static net.mantucon.baracus.orm.AbstractModelBase.idCol;
+import static org.baracus.orm.ModelBase.idCol;
 import static org.wonderapp.model.Customer.firstNameCol;
 import static org.wonderapp.model.Customer.lastNameCol;
 

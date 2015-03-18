@@ -1,8 +1,8 @@
 package org.wonderapp.service;
 
-import net.mantucon.baracus.annotations.Bean;
-import net.mantucon.baracus.lifecycle.Initializeable;
-import net.mantucon.baracus.util.Logger;
+import org.baracus.annotations.Bean;
+import org.baracus.lifecycle.Initializeable;
+import org.baracus.util.Logger;
 import org.wonderapp.R;
 import org.wonderapp.application.ApplicationContext;
 import org.wonderapp.dao.AccountDao;

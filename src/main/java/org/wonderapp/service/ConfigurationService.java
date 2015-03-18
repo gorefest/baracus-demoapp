@@ -1,8 +1,8 @@
 package org.wonderapp.service;
 
-import net.mantucon.baracus.annotations.Bean;
-import net.mantucon.baracus.dao.ConfigurationDao;
-import net.mantucon.baracus.model.ConfigurationParameter;
+import org.baracus.annotations.Bean;
+import org.baracus.dao.ConfigurationDao;
+import org.baracus.model.ConfigurationParameter;
 
 /**
  * Created with IntelliJ IDEA.

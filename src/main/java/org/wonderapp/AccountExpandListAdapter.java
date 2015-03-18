@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
-import net.mantucon.baracus.signalling.DataChangeAwareComponent;
+import org.baracus.signalling.DataChangeAwareComponent;
 import org.wonderapp.application.ApplicationContext;
 import org.wonderapp.model.Account;
 import org.wonderapp.model.Customer;

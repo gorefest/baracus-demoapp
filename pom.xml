@@ -15,7 +15,7 @@
         <android.plugin.version>3.5.3</android.plugin.version>
 	    <android.sdk.path>/usr/java/adt-bundle-linux-x86_64/sdk</android.sdk.path>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <baracus.version>0.7-Beta1</baracus.version>
+        <baracus.version>0.9</baracus.version>
         <platform.version>4.0.1.2</platform.version>
     </properties>
 
@@ -40,7 +40,7 @@
             <plugin>
                 <groupId>com.jayway.maven.plugins.android.generation2</groupId>
                 <artifactId>android-maven-plugin</artifactId>
-                <version>3.7.0</version>
+                <version>3.8.2</version>
                 <configuration>
                     <androidManifestFile>${project.basedir}/AndroidManifest.xml</androidManifestFile>
                     <assetsDirectory>${project.basedir}/assets</assetsDirectory>
@@ -84,7 +84,7 @@
             <id>windows</id>
             <properties>
                 <platform.version>4.0.1.2</platform.version>
-                <android.sdk.path>C:/adt-bundle-windows-x86-20130219/sdk</android.sdk.path>
+                <android.sdk.path>C:/Entwicklung/android-sdk</android.sdk.path>
                 <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
             </properties>
         </profile>

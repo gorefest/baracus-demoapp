@@ -15,7 +15,7 @@
               android:layout_width="fill_parent"
               android:layout_height="wrap_content"
             />
-    <net.mantucon.baracus.ui.ErrorView android:id="@+id/accountNumberMsg"
+    <org.baracus.ui.ErrorView android:id="@+id/accountNumberMsg"
                                        app:displayMessageFor="@id/txtAccountNumber"
                                        app:highlightTarget="true"
                                        android:layout_width="wrap_content"

@@ -1,14 +1,14 @@
 package org.wonderapp.model;
 
-import net.mantucon.baracus.orm.*;
+import org.baracus.orm.*;
 
 /**
  * Sample class for demonstrating simple persistence. This table is created by a migration step through the openHelper.
  */
-public class Account extends AbstractModelBase {
+public class Account extends ModelBase {
 
     /* Table metadata */
-    public static int columnIndex= AbstractModelBase.fieldList.size();
+    public static int columnIndex= ModelBase.fieldList.size();
 
     public static final String TABLE_NAME="account";    // needed for constructor and table creation
 
@@ -18,7 +18,7 @@ public class Account extends AbstractModelBase {
     public static final Field customerIdCol = new Field("customer_id", columnIndex++);   // this is going to be the N:1 relationship
 
     static {
-        fieldList.add(AbstractModelBase.fieldList);     // You must have a local field list in each class
+        fieldList.add(ModelBase.fieldList);     // You must have a local field list in each class
         fieldList.add(accountNumberCol);                // there you add all columns
         fieldList.add(accountNameCol);
         fieldList.add(customerIdCol);

@@ -12,13 +12,13 @@
             android:text="@string/customerFirstName"
             android:id="@+id/customerFirstNameLabel" android:layout_gravity="center"/>
 
-    <net.mantucon.baracus.ui.ConstrainedEditText android:id="@+id/txtCustomerFirstName"
+    <org.baracus.ui.ConstrainedEditText android:id="@+id/txtCustomerFirstName"
               android:layout_width="fill_parent"
               android:layout_height="wrap_content"
               app:validatedBy="stringNotEmpty"
             />
 
-    <net.mantucon.baracus.ui.ErrorView android:id="@+id/customerFirstMsg"
+    <org.baracus.ui.ErrorView android:id="@+id/customerFirstMsg"
                                        app:displayMessageFor="@id/txtCustomerFirstName"
                                        app:highlightTarget="true"
                                        android:layout_width="wrap_content"
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:text="@string/customerLastName"
             android:id="@+id/customerNameLabel" android:layout_gravity="center"/>
-    <net.mantucon.baracus.ui.ConstrainedEditText android:id="@+id/txtCustomerLastName"
+    <org.baracus.ui.ConstrainedEditText android:id="@+id/txtCustomerLastName"
               android:layout_width="fill_parent"
               android:layout_height="wrap_content"
               app:validatedBy="stringNotEmpty"

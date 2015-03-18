@@ -1,8 +1,8 @@
 package org.wonderapp.application;
 
 import android.content.Context;
-import net.mantucon.baracus.dao.BaracusOpenHelper;
-import net.mantucon.baracus.migr8.ModelVersion000;
+import org.baracus.dao.BaracusOpenHelper;
+import org.baracus.migr8.ModelVersion000;
 import org.wonderapp.migr8.ModelVersion100;
 
 /**

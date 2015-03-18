@@ -1,7 +1,7 @@
 package org.wonderapp.application;
 
-import net.mantucon.baracus.context.BaracusApplicationContext;
-import net.mantucon.baracus.util.Logger;
+import org.baracus.context.BaracusApplicationContext;
+import org.baracus.util.Logger;
 import org.wonderapp.dao.AccountDao;
 import org.wonderapp.dao.CustomerDao;
 import org.wonderapp.service.CalculationService;
